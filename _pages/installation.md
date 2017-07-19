@@ -1,6 +1,6 @@
 ---
 layout: inner
-title: Installation of SCAR
+title: Installation
 permalink: /installation/
 ---
 
