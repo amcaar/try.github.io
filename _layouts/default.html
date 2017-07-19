@@ -6,21 +6,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p> SCAR is a framework to transparently execute containers out of Docker images in AWS Lambda, in order to run applications (see examples for ImageMagick, FFmpeg and AWS CLI, as well as deep learning frameworks such as Theano and Darknet) and code in virtually any programming language (see examples for Erlang and Elixir) on AWS Lambda.
-                        SCAR provides the benefits of AWS Lambda with the execution environment you decide, provided as a Docker image available in Docker Hub. It is probably the easiest, most convenient approach to run generic applications on AWS Lambda, as well as code in your favourite programming language, not only in those languages supported by AWS Lambda.
-                        SCAR also supports a High Throughput Computing Programming Model to create highly-parallel event-driven file-processing serverless applications that execute on customized runtime environments provided by Docker containers run on AWS Lambda.
-                    </p>
-                    <h3> Approach </h3>
-                    <p> SCAR provides a command-line interface to create a Lambda function to execute a container out of a Docker image stored in Docker Hub. Each invocation of the Lambda function will result in the execution of such a container (optionally executing a shell-script inside the container for further versatility).
-                        The following underlying technologies are employed:
-                    </p>
-                    <ul>
-                        <li>udocker: A tool to execute Docker containers in user space. </li>
-                        <ul>
-                           <li>The Fakechroot execution mode of udocker is employed, since Docker containers cannot be natively run on AWS Lambda. Isolation is provided by the boundary of the Lambda function itself.</li>
-                        </ul>
-                        <li> AWS Lambda: A serverless compute service that runs Lambda functions in response to events. </li>
-                    </ul>    
+                    
+                    {{ content }}
+                    
                     <!--{% for post in paginator.posts %}
                         {% include tile.html %}
                     {% endfor %}-->
