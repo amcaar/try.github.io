@@ -1,2 +1,9 @@
-# try.github.io
-Proof-of-concept of Github pages with Bootstrap and Jekyll
+# Bootstrap 3 and Jekyll
+
+Proof-of-concept of the Bootstrap 3 and jekyll integration. Template based in the one exposed in a tutorial.
+
+* [Read the Jekyll Tutorial](https://scotch.io/tutorials/getting-started-with-jekyll-plus-a-free-bootstrap-3-starter-theme)
+
+
+
+
