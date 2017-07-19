@@ -1,7 +1,7 @@
 ---
 layout: inner
-title: Installation
-permalink: /installation/
+title: Examples
+permalink: /examples/
 ---
 
 # Usage Examples of SCAR
