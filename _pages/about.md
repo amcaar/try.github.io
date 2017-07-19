@@ -9,6 +9,8 @@ SCAR has been developed by the [Grid and High Performance Computing Group (GRyCA
 the [Instituto de Instrumentación para Imagen Molecular (I3M)](http://www.i3m.upv.es) from the [Universitat Politècnica de València (UPV)](http://www.upv.es)
 
 ![GRyCAP Logo](/images/grycap.png)
+![UPV Logo](/images/upv.png)
+![I3M Logo](/images/i3m.png)
 
 This development has been supported by the following research projects:
 
