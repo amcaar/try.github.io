@@ -1,10 +1,10 @@
 ---
 layout: inner
-title: Installation
+title: Installation of SCAR
 permalink: /installation/
 ---
 
-## Installation
+## Steps for a correct installation
 
 1. Clone the GitHub repository:
 
