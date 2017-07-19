@@ -6,11 +6,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    {% for post in paginator.posts %}
+                    <p> SCAR is a framework to transparently execute containers out of Docker images in AWS Lambda, in order to run applications (see examples for ImageMagick, FFmpeg and AWS CLI, as well as deep learning frameworks such as Theano and Darknet) and code in virtually any programming language (see examples for Erlang and Elixir) on AWS Lambda.
+                        SCAR provides the benefits of AWS Lambda with the execution environment you decide, provided as a Docker image available in Docker Hub. It is probably the easiest, most convenient approach to run generic applications on AWS Lambda, as well as code in your favourite programming language, not only in those languages supported by AWS Lambda.
+                        SCAR also supports a High Throughput Computing Programming Model to create highly-parallel event-driven file-processing serverless applications that execute on customized runtime environments provided by Docker containers run on AWS Lambda.
+                    </p>
+                    
+                    <!--{% for post in paginator.posts %}
                         {% include tile.html %}
-                    {% endfor %}
+                    {% endfor %}-->
 
-                    {% include pagination.html %}
+                    <!--{% include pagination.html %}-->
                 </div>
             </div>
         </div>
