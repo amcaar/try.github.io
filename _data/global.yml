@@ -1,5 +1,5 @@
 # Site Settings
-title: 'SCAR - Serverless Container-aware ARchitectu'
+title: 'SCAR - Serverless Container-aware ARchitecture'
 description: 'A framework to transparently execute containers out of Docker images in AWS Lambda'
 url: 'https://amcaar.github.io/try.github.io/'
 #url: 'https://github.com/grycap/scar' # the base hostname & protocol for your site
