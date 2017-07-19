@@ -20,4 +20,4 @@ This directory includes different use cases of applications packaged as Docker i
 
 Are you using SCAR for another application? Let us know by creating an issue.
 
-Find the code of all this examples in: https://github.com/grycap/scar/tree/master/examples
+Find the code of all this examples in [Github] (https://github.com/grycap/scar/tree/master/examples).
