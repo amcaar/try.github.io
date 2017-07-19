@@ -8,9 +8,9 @@ permalink: /installation/
 
 1. Clone the GitHub repository:
 
-```sh
+{% highlight javascript %}
 git clone https://github.com/grycap/scar.git
-```
+{% endhighlight %}
 
 2. Install the required dependencies:
 
