@@ -1,6 +1,6 @@
 ---
 layout: inner
-title: About
+title: About SCAR
 permalink: /about/
 ---
 
