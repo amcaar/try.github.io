@@ -1,5 +1,5 @@
 main:
-    - { url: 'https://amcaar.github.io/try.github.io/installation/', text: 'Installation' }
+    - { url: 'https://amcaar.github.io/try.github.io/installation/', text: 'Getting Started' }
     - { url: 'https://amcaar.github.io/try.github.io/examples/', text: 'Examples' }
     - { url: 'https://amcaar.github.io/try.github.io/about/', text: 'About' }
     - { url: 'https://github.com/grycap/scar', text: 'Fork on GitHub' }
