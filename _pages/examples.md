@@ -22,7 +22,8 @@ Are you using SCAR for another application? Let us know by creating an issue in 
 
 <img src="{{ site.data.global.img_url }}elixir.png" width="200" />
 <img src="{{ site.data.global.img_url }}sddefault.jpg" width="200" />
-<img src="{{ site.data.global.img_url }}erlang.png" width="200" />
-<img src="{{ site.data.global.img_url }}Imagemagick.png" width="150" />
+<img src="{{ site.data.global.img_url }}erlang.png" width="190" />
+<img src="{{ site.data.global.img_url }}Imagemagick.png" width="160" />
+<img src="{{ site.data.global.img_url }}ffmpeg.png" width="200" />
 
 Find the code of all this examples in [Github](https://github.com/grycap/scar/tree/master/examples).
