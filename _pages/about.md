@@ -17,3 +17,7 @@ This development has been supported by the following research projects:
 * Big Data and High Performance Computing over Elastic Multi-Clouds (BigCLOE) under grant reference TIN2016-79951-R, founded by the Spanish Ministerio de Economia, Industria y Competitividad.
 
 Publications would be listed here in the future.
+
+## Acknowledgements
+
+* [udocker](https://github.com/indigo-dc/udocker)
