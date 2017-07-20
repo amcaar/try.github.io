@@ -14,6 +14,6 @@ the [Instituto de Instrumentación para Imagen Molecular (I3M)](http://www.i3m.u
 
 This development has been supported by the following research projects:
 
-* BigCLOE under grant reference TIN2016-79951-R
+* Big Data and High Performance Computing over Elastic Multi-Clouds (BigCLOE) under grant reference TIN2016-79951-R, founded by the Spanish Ministerio de Economia, Industria y Competitividad.
 
 Publications would be listed here in the future.
