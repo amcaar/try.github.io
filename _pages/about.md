@@ -4,8 +4,8 @@ title: About
 permalink: /about/
 ---
 
-<img src="https://github.com/amcaar/try.github.io/raw/master/images/grycap.png" width="310" />
-<img src="https://github.com/amcaar/try.github.io/raw/master/images/upv.png" width="310" />
+<img src="{{ site.data.global.img_url }}grycap.png" width="310" />
+<img src="{{ site.data.global.img_url }}upv.png" width="310" />
 <img src="{{ site.data.global.img_url }}i3m.png" width="310" />
 
 SCAR has been developed by the [Grid and High Performance Computing Group (GRyCAP)](http://www.grycap.upv.es) at 
