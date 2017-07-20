@@ -16,4 +16,22 @@ layout: default
                            <li>The Fakechroot execution mode of udocker is employed, since Docker containers cannot be natively run on AWS Lambda. Isolation is provided by the boundary of the Lambda function itself.</li>
                         </ul>
                         <li> AWS Lambda: A serverless compute service that runs Lambda functions in response to events. </li>
-                    </ul> 
+                    </ul>
+                    <p> SCAR can optionally define a trigger so that the Lambda function is executed whenever a file is uploaded to an Amazon S3 bucket. This file is automatically made available to the underlying Docker container run on AWS Lambda so that an user-provided shell-script can process the file. See the Programming Model for more details.</p>
+                    <h3> Architecture </h3>
+                    <p> A brief description of the SCAR architecture would be here. Moreover we can add a figure. But I'll wait till the paper has been published.
+                    </p>
+                    <h3> Limitations </h3>
+                    <p> The limitations of SCAR are the current limitations of the serverless service, i.e. AWS Lambda.</p>
+                    <ul>
+                        <li>The Docker container must fit within the current AWS Lambda limits:  </li>
+                        <ul>
+                           <li> Compressed + uncompressed Docker image under 512 MB (udocker needs to download the image before uncompressing it).</li>
+                           <li> Maximum execution time of 300 seconds (5 minutes).</li>
+                        </ul>
+                        <li> The following Docker images cannot be currently used:  </li>
+                        <ul>
+                           <li> Those based on Alpine Linux (due to the use of MUSL instead of GLIBC, which is not supported by Fakechroot).</li>
+                        </ul>
+                        <li> Installation of packages in the user-defined script (i.e. using yum, apt-get, etc.) is currently not possible.</li>
+                    </ul>
