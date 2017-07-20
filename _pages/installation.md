@@ -48,7 +48,7 @@ There is a sample policy in the [lambda-execute-role.json](docs/aws/lambda-execu
 
 ### Configuration file
 
-Create the file `~/.scar/scar.cfg` with the following structure (sample values are included, please customize it to your environment):
+Create the file <code>~/.scar/scar.cfg</code> with the following structure (sample values are included, please customize it to your environment):
 
 {% highlight javascript %}
 [scar]
@@ -62,12 +62,12 @@ lambda_timeout_threshold = 10
 
 The values represent:
 
-* lambda_description: Default description of the AWS Lambda function (can be customized with the `-d` parameter in `scar init`)
-* lambda_memory: Default maximum memory allocated to the AWS Lambda function (can be customized with the `-m` parameter in `scar init`)
-* lambda_time: Default maximum execution time of the AWS Lambda function (can be customized with the `-t` parameter in `scar init`).
+* lambda_description: Default description of the AWS Lambda function (can be customized with the <code>-d</code> parameter in <code>scar init</code>)
+* lambda_memory: Default maximum memory allocated to the AWS Lambda function (can be customized with the <code>-m</code> parameter in <code>scar init</code>)
+* lambda_time: Default maximum execution time of the AWS Lambda function (can be customized with the <code>-t</code> parameter in <code>scar init</code>).
 * lambda_region: The [AWS region](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) on which the AWS Lambda function will be created
 * lambda_role: The [ARN](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the IAM Role that you just created in the previous section
-* lambda_timeout_threshold: Default time used to postprocess the container output. Also used to avoid getting timeout error in case the execution of the container takes more time than the lambda_time (can be customized with the `-tt` parameter in `scar init`).
+* lambda_timeout_threshold: Default time used to postprocess the container output. Also used to avoid getting timeout error in case the execution of the container takes more time than the lambda_time (can be customized with the <code>-tt</code> parameter in <code>scar init</code>).
 
 ## Basic Usage
 
@@ -79,7 +79,7 @@ In these examples the [grycap/cowsay](https://hub.docker.com/r/grycap/cowsay/) D
 scar init -n lambda-docker-cowsay -m 128 -t 300 grycap/cowsay
 {% endhighlight %}
 
-Notice that the memory and time limits for the Lambda function can be specified in the command-line. Upon first execution, the file `$HOME/.scar/scar.cfg` is created with default values for the memory and timeout, among other features. The command-line values always take precedence over the values in the configuration file. The default values are 128 MB for the memory (minimize memory) and 300 seconds for the timeout (maximize runtime).
+Notice that the memory and time limits for the Lambda function can be specified in the command-line. Upon first execution, the file <code>$HOME/.scar/scar.cfg</code> is created with default values for the memory and timeout, among other features. The command-line values always take precedence over the values in the configuration file. The default values are 128 MB for the memory (minimize memory) and 300 seconds for the timeout (maximize runtime).
 
 Further information about the command-line arguments is available in the help:
 
@@ -93,11 +93,11 @@ scar --help
 scar run lambda-docker-cowsay
 {% endhighlight %}
 
-The first invocation to the Lambda function will pull the Docker image from Docker Hub so it will take considerably longer than the subsequent invocations, which will most certainly reuse the existing Docker image, stored in ```/tmp```.
+The first invocation to the Lambda function will pull the Docker image from Docker Hub so it will take considerably longer than the subsequent invocations, which will most certainly reuse the existing Docker image, stored in <code>/tmp</code>.
 
 3. Access the logs
 
-The logs are stored in CloudWatch with a default retention policy of 30 days.  The following command retrieves all the logs related to the Lambda function:
+The logs are stored in CloudWatch with a default retention policy of 30 days. The following command retrieves all the logs related to the Lambda function:
 
 {% highlight javascript %}
 scar log lambda-docker-cowsay
@@ -121,7 +121,7 @@ You can also specify the log stream name to retrieve the values related with the
 scar log lambda-docker-cowsay -ls 'log-stream-name' -ri request-id
 {% endhighlight %}
 
-All values are shown in the output when executing `scar log`. Do not forget to use the single quotes, as indicated in the example, to avoid unwanted shell expansions.
+All values are shown in the output when executing <code>scar log</code>. Do not forget to use the single quotes, as indicated in the example, to avoid unwanted shell expansions.
 
 4. Remove the Lambda function
 
@@ -170,10 +170,10 @@ scar run -e TEST1=45 -e TEST2=69 -s test/test-global-vars.sh lambda-docker-cowsa
 
 In particular, the following environment variables are automatically made available to the underlying Docker container:
 
-* `AWS_ACCESS_KEY_ID`
-* `AWS_SECRET_ACCESS_KEY`
-* `AWS_SESSION_TOKEN`
-* `AWS_SECURITY_TOKEN`
+* <code>AWS_ACCESS_KEY_ID</code>
+* <code>AWS_SECRET_ACCESS_KEY</code>
+* <code>AWS_SESSION_TOKEN</code>
+* <code>AWS_SECURITY_TOKEN</code>
 
 This allows a script running in the Docker container to access other AWS services. As an example, see how the AWS CLI is run on AWS Lambda in the [examples/aws-cli](examples/aws-cli) folder.
 
@@ -197,7 +197,7 @@ Note that since cowsay is a Perl script you will have to prepend it with the loc
 
 ### Obtaining a JSON Output
 
-For easier scripting, a JSON output can be obtained by including the `--json` or the `-v` (even more verbose output) flags.
+For easier scripting, a JSON output can be obtained by including the <code>--json</code> or the <code>-v</code> (even more verbose output) flags.
 
 {% highlight javascript %}
 scar run --json lambda-docker-cowsay
@@ -213,15 +213,15 @@ The following command:
 scar init -s user-defined-script.sh -n lambda-function-name -es bucket-name repo/image:latest
 {% endhighlight %}
 
-Creates a Lambda function to execute the shell-script `user-defined-script.sh` inside a Docker container created out of the `repo/image:latest` Docker image stored in Docker Hub.
+Creates a Lambda function to execute the shell-script <code>user-defined-script.sh</code> inside a Docker container created out of the <code>repo/image:latest</code> Docker image stored in Docker Hub.
 
 The following workflow summarises the programming model, which heavily uses the [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) pattern:
 
-1. The Amazon S3 bucket `bucket-name` will be created if it does not exist, and the `input` and `output` folders inside.
-1. The Lambda function is triggered upon uploading a file into the `input` folder of the `bucket-name` bucket.
-1. The Lambda function retrieves the file from the Amazon S3 bucket and makes it available for the shell-script running inside the container in the `/tmp/$REQUEST_ID/input` folder. The `$SCAR_INPUT_FILE` environment variable will point to the location of the input file.
-1. The shell-script processes the input file and produces the output (either one or multiple files) in the folder `/tmp/$REQUEST_ID/output`.
-1. The output files are automatically uploaded by the Lambda function into the `output` folder of `bucket-name`.
+1. The Amazon S3 bucket <code>bucket-name</code> will be created if it does not exist, and the <code>input</code> and <code>output</code> folders inside.
+1. The Lambda function is triggered upon uploading a file into the <code>input</code> folder of the <code>bucket-name</code> bucket.
+1. The Lambda function retrieves the file from the Amazon S3 bucket and makes it available for the shell-script running inside the container in the <code>/tmp/$REQUEST_ID/input</code> folder. The <code>$SCAR_INPUT_FILE</code> environment variable will point to the location of the input file.
+1. The shell-script processes the input file and produces the output (either one or multiple files) in the folder <code>/tmp/$REQUEST_ID/output</code>.
+1. The output files are automatically uploaded by the Lambda function into the <code>output</code> folder of <code>bucket-name</code>.
 
 Many instances of the Lambda function may run concurrently and independently, depending on the files to be processed in the S3 bucket. Initial executions of the Lambda may require retrieving the Docker image from Docker Hub but this will be cached for subsequent invocations, thus speeding up the execution process.
 
@@ -238,26 +238,26 @@ After creating a function with the command:
 scar init -s user-defined-script.sh -n lambda-function-name repo/image:latest
 {% endhighlight %}
 
-You can activate the SCAR event launcher using the `run` command like this:
+You can activate the SCAR event launcher using the <code>run</code> command like this:
 
 
 {% highlight javascript %}
 scar run -es bucket-name lambda-function-name
 {% endhighlight %}
 
-This command lists the files in the `input` folder of the specified bucket and sends the required events (one per file) to the lambda function.
+This command lists the files in the <code>input</code> folder of the specified bucket and sends the required events (one per file) to the lambda function.
 
 The following workflow summarises the programming model, the differences with the main programming model are in bold:
 
-1. **The folder `input` inside the amazon S3 bucket `bucket-name` will be searched for files.**
-1. **The Lambda function is triggered once for each file found in the `input` folder. The first execution is of type `request-response` and the rest are `asynchronous`(this is done to ensure the caching and accelerate the execution).**
-1. The Lambda function retrieves the file from the Amazon S3 bucket and makes it available for the shell-script running inside the container in the `/tmp/$REQUEST_ID/input` folder. The `$SCAR_INPUT_FILE` environment variable will point to the location of the input file.
-1. The shell-script processes the input file and produces the output (either one or multiple files) in the folder `/tmp/$REQUEST_ID/output`.
-1. The output files are automatically uploaded by the Lambda function into the `output` folder of `bucket-name`.
+1. **The folder <code>input</code> inside the amazon S3 bucket <code>bucket-name</code> will be searched for files.**
+1. **The Lambda function is triggered once for each file found in the <code>input</code> folder. The first execution is of type <code>request-response</code> and the rest are <code>asynchronous</code>(this is done to ensure the caching and accelerate the execution).**
+1. The Lambda function retrieves the file from the Amazon S3 bucket and makes it available for the shell-script running inside the container in the <code>/tmp/$REQUEST_ID/input</code> folder. The <code>$SCAR_INPUT_FILE</code> environment variable will point to the location of the input file.
+1. The shell-script processes the input file and produces the output (either one or multiple files) in the folder <code>/tmp/$REQUEST_ID/output</code>.
+1. The output files are automatically uploaded by the Lambda function into the <code>output</code> folder of <code>bucket-name</code>.
 
 ## Local Testing of the Docker images via udocker
 
-You can test locally if the Docker image will be able to run in AWS Lambda by means of udocker (available in the `lambda` directory) and taking into account the following limitations:
+You can test locally if the Docker image will be able to run in AWS Lambda by means of udocker (available in the <code>lambda</code> directory) and taking into account the following limitations:
 
 * udocker cannot run on macOS. Use a Linux box instead.
 * Images based in Alpine will not work.
