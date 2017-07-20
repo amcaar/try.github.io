@@ -18,6 +18,11 @@ This [directory](https://github.com/grycap/scar/tree/master/examples) includes d
 * [Theano](http://deeplearning.net/software/theano/), a Python library that allows you to define, optimize, and evaluate mathematical expressions involving multi-dimensional arrays efficiently.
 * [Darknet](https://pjreddie.com/darknet) is an open source neural network framework written in C and CUDA. For the example we will be using the library 'You only look once' [Yolo](https://pjreddie.com/darknet/yolo/) which is  is a state-of-the-art, real-time object detection system
 
-Are you using SCAR for another application? Let us know by creating an issue.
+Are you using SCAR for another application? Let us know by creating an issue in [GitHub](https://github.com/grycap/scar).
+
+<img src="{{ site.data.global.img_url }}elixir.png" width="200" />
+<img src="{{ site.data.global.img_url }}sddefault.jpg" width="200" />
+<img src="{{ site.data.global.img_url }}erlang.png" width="200" />
+<img src="{{ site.data.global.img_url }}Imagemagick.png" width="150" />
 
 Find the code of all this examples in [Github](https://github.com/grycap/scar/tree/master/examples).
