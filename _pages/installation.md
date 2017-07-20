@@ -326,6 +326,3 @@ SCAR is licensed under the Apache License, Version 2.0. See
 [LICENSE](https://github.com/grycap/scar/blob/master/LICENSE) for the full
 license text.
 
-## Acknowledgements
-
-* [udocker](https://github.com/indigo-dc/udocker)
