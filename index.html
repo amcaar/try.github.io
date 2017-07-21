@@ -13,44 +13,69 @@ layout: default
                       </div>
                     </div>
                     <section id="features" class="row-gray">
-                    <div class="row">
-                       <div class="col-md-12 text-center">
-                          <h2 class="section-heading">SCAR main features</h2>
-                          </br>
-                       </div>
-                    </div> 
+                      <div class="row">
+                         <div class="col-md-12 text-center">
+                            <h2 class="section-heading">SCAR main features</h2>
+                            </br>
+                         </div>
+                      </div> 
+
+                      <div class="row text-center">
+                        <div class="col-md-4">
+                            <span class="fa-stack fa-4x">
+                                <!--<i class="fa fa-terminal fa-stack-1x fa-inverse"></i>-->
+                                <i class="icon-shell" style="color:white"></i>
+                            </span>
+                            <h4 class="service-heading text-muted-contact">Web and CLI interfaces</h4>
+                            <p class="text-muted">Unleash the power of EC3 by using the Command Line Interface, available at the <a href="https://github.com/grycap/ec3" target="_blank">GitHub</a> repository.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-bar-chart fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <h4 class="service-heading text-muted-contact">Self-Managed Elasticity</h4>
+                            <p class="text-muted">Elasticity is powered by <a href="http://www.grycap.upv.es/clues/eng/index.php" target="_blank">CLUES</a> and managed by the cluster itself. No external monitoring required.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-sellsy fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <h4 class="service-heading text-muted-contact">Hybrid clusters</h4>
+                            <p class="text-muted">Deploy clusters that span multiple Clouds with automatic VPN / SSH tunnels management.</p>
+                        </div>
+                      </div>
                     </section>
 
                     <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                    <h3> Approach </h3>
-                    <p align="justify"> SCAR provides a command-line interface to create a Lambda function to execute a container out of a Docker image stored in Docker Hub. Each invocation of the Lambda function will result in the execution of such a container (optionally executing a shell-script inside the container for further versatility).
-                        The following underlying technologies are employed:
-                    </p>
-                    <ul>
-                        <li>udocker: A tool to execute Docker containers in user space. </li>
+                      <div class="col-md-10 col-md-offset-1">
+                        <h3> Approach </h3>
+                        <p align="justify"> SCAR provides a command-line interface to create a Lambda function to execute a container out of a Docker image stored in Docker Hub. Each invocation of the Lambda function will result in the execution of such a container (optionally executing a shell-script inside the container for further versatility).
+                            The following underlying technologies are employed:
+                        </p>
                         <ul>
-                           <li>The Fakechroot execution mode of udocker is employed, since Docker containers cannot be natively run on AWS Lambda. Isolation is provided by the boundary of the Lambda function itself.</li>
+                            <li>udocker: A tool to execute Docker containers in user space. </li>
+                            <ul>
+                               <li>The Fakechroot execution mode of udocker is employed, since Docker containers cannot be natively run on AWS Lambda. Isolation is provided by the boundary of the Lambda function itself.</li>
+                            </ul>
+                            <li> AWS Lambda: A serverless compute service that runs Lambda functions in response to events. </li>
                         </ul>
-                        <li> AWS Lambda: A serverless compute service that runs Lambda functions in response to events. </li>
-                    </ul>
-                    <p align="justify"> SCAR can optionally define a trigger so that the Lambda function is executed whenever a file is uploaded to an Amazon S3 bucket. This file is automatically made available to the underlying Docker container run on AWS Lambda so that an user-provided shell-script can process the file. See the Programming Model for more details.</p>
-                    <h3> Architecture </h3>
-                    <p> A brief description of the SCAR architecture would be here. Moreover we can add a figure. But I'll wait till the paper has been published.
-                    </p>
-                    <h3> Limitations </h3>
-                    <p> The limitations of SCAR are the current limitations of the serverless service, i.e. AWS Lambda. The most important are:</p>
-                    <ul>
-                        <li>The Docker container must fit within the current AWS Lambda limits:  </li>
+                        <p align="justify"> SCAR can optionally define a trigger so that the Lambda function is executed whenever a file is uploaded to an Amazon S3 bucket. This file is automatically made available to the underlying Docker container run on AWS Lambda so that an user-provided shell-script can process the file. See the Programming Model for more details.</p>
+                        <h3> Architecture </h3>
+                        <p> A brief description of the SCAR architecture would be here. Moreover we can add a figure. But I'll wait till the paper has been published.
+                        </p>
+                        <h3> Limitations </h3>
+                        <p> The limitations of SCAR are the current limitations of the serverless service, i.e. AWS Lambda. The most important are:</p>
                         <ul>
-                           <li> Compressed + uncompressed Docker image under 512 MB (udocker needs to download the image before uncompressing it).</li>
-                           <li> Maximum execution time of 300 seconds (5 minutes).</li>
+                            <li>The Docker container must fit within the current AWS Lambda limits:  </li>
+                            <ul>
+                               <li> Compressed + uncompressed Docker image under 512 MB (udocker needs to download the image before uncompressing it).</li>
+                               <li> Maximum execution time of 300 seconds (5 minutes).</li>
+                            </ul>
+                            <li> The following Docker images cannot be currently used:  </li>
+                            <ul>
+                               <li> Those based on Alpine Linux (due to the use of MUSL instead of GLIBC, which is not supported by Fakechroot).</li>
+                            </ul>
+                            <li> Installation of packages in the user-defined script (i.e. using yum, apt-get, etc.) is currently not possible.</li>
                         </ul>
-                        <li> The following Docker images cannot be currently used:  </li>
-                        <ul>
-                           <li> Those based on Alpine Linux (due to the use of MUSL instead of GLIBC, which is not supported by Fakechroot).</li>
-                        </ul>
-                        <li> Installation of packages in the user-defined script (i.e. using yum, apt-get, etc.) is currently not possible.</li>
-                    </ul>
-                    </div>
+                      </div>
                     </div>
