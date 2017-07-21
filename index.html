@@ -87,19 +87,21 @@ layout: default
                         <!--<h3> Architecture </h3>
                         <p> A brief description of the SCAR architecture would be here. Moreover we can add a figure. But I'll wait till the paper has been published.
                         </p>-->
-                        <h2 class="section-heading text-center"> Limitations </h2>
-                        <p> The limitations of SCAR are the current limitations of the serverless service, i.e. AWS Lambda. The most important are:</p>
-                        <ul>
-                            <li>The Docker container must fit within the current AWS Lambda limits:  </li>
-                            <ul>
-                               <li> Compressed + uncompressed Docker image under 512 MB (udocker needs to download the image before uncompressing it).</li>
-                               <li> Maximum execution time of 300 seconds (5 minutes).</li>
-                            </ul>
-                            <li> The following Docker images cannot be currently used:  </li>
-                            <ul>
-                               <li> Those based on Alpine Linux (due to the use of MUSL instead of GLIBC, which is not supported by Fakechroot).</li>
-                            </ul>
-                            <li> Installation of packages in the user-defined script (i.e. using yum, apt-get, etc.) is currently not possible.</li>
-                        </ul>
+                        <section id="features" class="row-gray">
+                          <h2 class="section-heading text-center"> Limitations </h2>
+                          <p> The limitations of SCAR are the current limitations of the serverless service, i.e. <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html"> AWS Lambda limitations</a>. The most important are:</p>
+                          <ul>
+                              <li>The Docker container must fit within the current AWS Lambda limits:  </li>
+                              <ul>
+                                 <li> Compressed + uncompressed Docker image under 512 MB (udocker needs to download the image before uncompressing it).</li>
+                                 <li> Maximum execution time of 300 seconds (5 minutes).</li>
+                              </ul>
+                              <li> The following Docker images cannot be currently used:  </li>
+                              <ul>
+                                 <li> Those based on Alpine Linux (due to the use of MUSL instead of GLIBC, which is not supported by Fakechroot).</li>
+                              </ul>
+                              <li> Installation of packages in the user-defined script (i.e. using yum, apt-get, etc.) is currently not possible.</li>
+                          </ul>
+                        </section>
                       </div>
                     </div>
