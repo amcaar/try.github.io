@@ -43,6 +43,31 @@ layout: default
                             <p class="text-muted-right">Deploy clusters that span multiple Clouds with automatic VPN / SSH tunnels management.</p>
                         </div>
                       </div>
+
+                      <div class="row text-center">
+                          <div class="col-md-4">
+                              <span class="fa-stack fa-4x">
+                                <i class="fa fa-money fa-stack-1x fa-inverse"></i>
+                              </span>
+                              <h4 class="service-heading text-muted-contact">Cost-Aware</h4>
+                              <p class="text-muted">Leverage <a href="http://aws.amazon.com/en/ec2/purchasing-options/spot-instances/" target="_blank">Spot Instances</a> to cut down costs, featuring automatic checkpointing/restart of applications.</p>
+                          </div>
+                          <div class="col-md-4">
+                              <span class="fa-stack fa-4x">
+                                  <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
+                              </span>
+                              <h4 class="service-heading text-muted-contact">Cloud Agnostic</h4>
+                              <p class="text-muted">Supercharged with the <a href="http://www.grycap.upv.es/im" target="_blank">Infrastructure Manager (IM)</a> to deploy customized clusters on your favourite Clouds.</p>
+                          </div>
+                          <div class="col-md-4">
+                              <span class="fa-stack fa-4x">
+                                  <!--<i class="fa fa-file-code-o fa-stack-1x fa-inverse"></i>-->
+                                  <i class="icon-python" style="color:white"></i>
+                              </span>
+                              <h4 class="service-heading text-muted-contact">Python-powered strength</h4>
+                              <p class="text-muted-right">Proudly developed in <a href="https://www.python.org/" target="_blank">Python</a> and distributed as open-source under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 License</a>.</p>
+                          </div>
+                      </div>
                     </section>
 
                     <div class="row">
@@ -63,7 +88,7 @@ layout: default
                         <!--<h3> Architecture </h3>
                         <p> A brief description of the SCAR architecture would be here. Moreover we can add a figure. But I'll wait till the paper has been published.
                         </p>-->
-                        <h3> Limitations </h3>
+                        <h2 class="section-heading text-center"> Limitations </h2>
                         <p> The limitations of SCAR are the current limitations of the serverless service, i.e. AWS Lambda. The most important are:</p>
                         <ul>
                             <li>The Docker container must fit within the current AWS Lambda limits:  </li>
